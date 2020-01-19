@@ -15,3 +15,30 @@ $(document).ready(function () {
     firebase.initializeApp(config);
 
     var database = firebase.database();
+
+//show trains
+    //get user input stored in database
+    //use jQuery to append info to html
+    //use moment.js to calculate next train time
+
+
+
+//calculate train times
+    //calculate the difference between the first train and frequency (min)
+    //caclulate remainder of diff & frequency
+    //subtract frequency from the remainder
+
+
+//add new trains
+    //create on-click for #add-train
+    //reset form
+    //push user input to the database
+
+
+
+
+
+
+
+
+});
