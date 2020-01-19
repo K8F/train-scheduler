@@ -18,7 +18,20 @@ $(document).ready(function () {
     //get user input stored in database
     //use jQuery to append info to html
     //use moment.js to calculate next train time
-    
+
+    database.ref().on("child_added", function (snap) {
+        console.log(snap.key, snap.val())
+        var train = snap.val()
+
+        var rowTrain = `
+            <tr>
+                <td>${train.trainName}</td>
+                <td>${train.destination}</td>
+                <td>${train.frequency}</td>  
+            </tr>`
+        $("#add-row").append(rowTrain);
+
+    });  
 
 
 
