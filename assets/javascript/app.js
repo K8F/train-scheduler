@@ -20,7 +20,7 @@ $(document).ready(function () {
     //use moment.js to calculate next train time
 
     database.ref().on("child_added", function (snap) {
-        console.log(snap.key, snap.val())
+        //console.log(snap.key, snap.val())
         var train = snap.val()
         var info = calculateNext(train.firstTrain, train.frequency)   // we can return an array with the info (nexttrain, minutesaway)
         var rowTrain = `
@@ -41,14 +41,14 @@ $(document).ready(function () {
     //subtract frequency from the remainder
     function calculateNext(first, freq){
         var firstTrain = moment(first, "HH:mm:ss")
-        console.log("first:", firstTrain)
+        //console.log("first:", firstTrain)
         var diff = moment().diff(firstTrain, "minutes")   //current*60  - first*60 = minutes
         var tRemainder = diff % freq
         var minutesAway = freq - tRemainder    //08:00  minutes in abosulutes   //substract (diff)
         var nextTrain = moment().add(minutesAway, "minutes").format("hh:mm A")   // plus (sum)
          //moment()= current time
          
-         console.log(nextTrain , minutesAway)
+         //console.log(nextTrain , minutesAway)
          return([nextTrain, minutesAway])
      
      }
