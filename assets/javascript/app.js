@@ -1,5 +1,3 @@
-console.log("is this working?")
-
 $(document).ready(function () {
     var config = {
         apiKey: "AIzaSyBajUNJ0BZmYkT4HhL_Isal5IWuBXDGWX0",
@@ -20,6 +18,8 @@ $(document).ready(function () {
     //get user input stored in database
     //use jQuery to append info to html
     //use moment.js to calculate next train time
+    
+
 
 
 
@@ -33,6 +33,28 @@ $(document).ready(function () {
     //create on-click for #add-train
     //reset form
     //push user input to the database
+    $("#add-train").on("click", function () {
+        event.preventDefault();
+        var train = {
+            trainName: $("#train-name").val(),
+            destination: $("#destination").val(),
+            firstTrain: $("#first-train").val(),
+            frequency: $("#frequency").val()
+        }
+
+        //console.log(train);
+        database.ref().push(train)
+        // clear the form
+        $("#train-name").val("");
+        $("#destination").val("");
+        $("#first-train").val("");
+        $("#frequency").val("");
+
+    }
+
+
+    )
+
 
 
 
